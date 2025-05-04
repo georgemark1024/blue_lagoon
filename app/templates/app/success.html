@@ -10,16 +10,20 @@
 {% block title %}Success{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h2>{{response.message}}!</h2>
-        <ul>
-            <li>Reference: {{ response.reservation_reference }}</li>
-            <li>Hotel: {{ response.hotel }}</li>
-            <li>Total Payable: {{ response.total_payable }}</li>
-            <li>Check-in: {{ response.check_in }}</li>
-            <li>Check-out: {{ response.check_out }}</li>
-            <li>Confirmation Time: {{ response.confirmation_time }}</li>
-        </ul>
-        <a href="{% url 'make_reservation' %}" class="btn btn-primary">Go to Home</a>
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-success mb-4">{{ response.message }}!</h2>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Reference:</strong> {{ response.reservation_reference }}</li>
+                <li class="list-group-item"><strong>Hotel:</strong> {{ response.hotel }}</li>
+                <li class="list-group-item"><strong>Total Payable:</strong> {{ response.total_payable }}</li>
+                <li class="list-group-item"><strong>Check-in:</strong> {{ response.check_in }}</li>
+                <li class="list-group-item"><strong>Check-out:</strong> {{ response.check_out }}</li>
+                <li class="list-group-item"><strong>Confirmation Time:</strong> {{ response.confirmation_time }}</li>
+            </ul>
+            <a href="{% url 'make_reservation' %}" class="btn btn-primary">Go to Home</a>
+        </div>
     </div>
+</div>
 {% endblock %}

@@ -1,27 +1,54 @@
-<form id="profile-form" method="post">
-{% csrf_token %}
-    <h3>User Details</h3>
-    <!-- {{ profile_form.non_field_errors }}
-    {{ profile_form.first_name.label }}: {{ profile_form.first_name }}<br>
-    {{ profile_form.last_name.label }}: {{ profile_form.last_name }}<br>
-    {{ profile_form.email.label }}: {{ profile_form.email }}<br>
-    {{ profile_form.phone.label }}: {{ profile_form.phone }}<br>
-    {{ profile_form.address.label }}: {{ profile_form.address }}<br> -->
+<form class="container mt-4" id="profile-form" method="post">
+    {% csrf_token %}
+
+    <h3 class="mb-4">User Details</h3>
     {% if client_form.errors %}
-    {{ client_form.errors }}
+        <div class="alert alert-danger">
+            {{ client_form.errors }}
+        </div>
     {% endif %}
-    {{ client_form.as_p }}
 
-    <h3>Reservation Details</h3>
-    <!-- {{ reservation_form.hotel_name.label }}: {{ reservation_form.hotel_name }}<br>
-    {{ reservation_form.number_of_rooms.label }}: {{ reservation_form.number_of_rooms }}<br>
-    {{ reservation_form.check_in.label }}: {{ reservation_form.check_in }}<br>
-    {{ reservation_form.check_out.label }}: {{ reservation_form.check_out }}<br> -->
+    <div class="mb-3">
+        <label for="id_first_name" class="form-label">{{ client_form.first_name.label }}</label>
+        {{ client_form.first_name }}
+    </div>
+
+    <div class="mb-3">
+        <label for="id_last_name" class="form-label">{{ client_form.last_name.label }}</label>
+        {{ client_form.last_name }}
+    </div>
+
+    <div class="mb-3">
+        <label for="id_email" class="form-label">{{ client_form.email.label }}</label>
+        {{ client_form.email }}
+    </div>
+
+    <div class="mb-4">
+        <label for="id_phone" class="form-label">{{ client_form.phone.label }}</label>
+        {{ client_form.phone }}
+    </div>
+
+    <h3 class="mb-4">Reservation Details</h3>
     {% if reservation_form.errors %}
-    {{ reservation_form.errors }}
+        <div class="alert alert-danger">
+            {{ reservation_form.errors }}
+        </div>
     {% endif %}
-    {{ reservation_form.as_p }}
 
+    <div class="mb-3">
+        <label for="id_number_of_rooms" class="form-label">{{ reservation_form.number_of_rooms.label }}</label>
+        {{ reservation_form.number_of_rooms }}
+    </div>
 
-    <button type="submit">Submit</button>
+    <div class="mb-3">
+        <label for="id_check_in" class="form-label">{{ reservation_form.check_in.label }}</label>
+        {{ reservation_form.check_in }}
+    </div>
+
+    <div class="mb-4">
+        <label for="id_check_out" class="form-label">{{ reservation_form.check_out.label }}</label>
+        {{ reservation_form.check_out }}
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>
