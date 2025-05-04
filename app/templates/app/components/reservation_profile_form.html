@@ -1,0 +1,27 @@
+<form id="profile-form" method="post">
+{% csrf_token %}
+    <h3>User Details</h3>
+    <!-- {{ profile_form.non_field_errors }}
+    {{ profile_form.first_name.label }}: {{ profile_form.first_name }}<br>
+    {{ profile_form.last_name.label }}: {{ profile_form.last_name }}<br>
+    {{ profile_form.email.label }}: {{ profile_form.email }}<br>
+    {{ profile_form.phone.label }}: {{ profile_form.phone }}<br>
+    {{ profile_form.address.label }}: {{ profile_form.address }}<br> -->
+    {% if client_form.errors %}
+    {{ client_form.errors }}
+    {% endif %}
+    {{ client_form.as_p }}
+
+    <h3>Reservation Details</h3>
+    <!-- {{ reservation_form.hotel_name.label }}: {{ reservation_form.hotel_name }}<br>
+    {{ reservation_form.number_of_rooms.label }}: {{ reservation_form.number_of_rooms }}<br>
+    {{ reservation_form.check_in.label }}: {{ reservation_form.check_in }}<br>
+    {{ reservation_form.check_out.label }}: {{ reservation_form.check_out }}<br> -->
+    {% if reservation_form.errors %}
+    {{ reservation_form.errors }}
+    {% endif %}
+    {{ reservation_form.as_p }}
+
+
+    <button type="submit">Submit</button>
+</form>
