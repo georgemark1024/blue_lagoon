@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'app/js/scripts.js' %}"></script>
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
+{% endblock %}
+{% block title %}Reservation Error{% endblock %}
+
+{% block content %}
+    {{error}}
+{% endblock %}

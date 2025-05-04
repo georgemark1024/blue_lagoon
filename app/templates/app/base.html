@@ -8,6 +8,21 @@
     {% block styles %}{% endblock styles %}
 </head>
 <body>
+    {% if error %}
+        <div style="color: red; padding: 1rem;">
+            <strong>Error:</strong> {{ error }}
+        </div>
+    {% endif %}
+    
+    {% if api_error %}
+        <div style="color: red; background-color: #ffe6e6; padding: 10px;">
+            <strong>Error:</strong> {{ api_error.error }}
+            {% if api_error.trace %}
+                <pre>{{ api_error.trace }}</pre>
+            {% endif %}
+        </div>
+    {% endif %}
+
     {% block content %}
       
     {% endblock content %}
